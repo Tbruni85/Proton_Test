@@ -14,11 +14,31 @@ public protocol WeekWeatherViewModelDelegate: AnyObject {
     func didFailFetchWeekData()
 }
 
+enum FiterType {
+    case all
+    case hottest
+}
+
 class WeekWeatherViewModel {
     
     public weak var delegate: WeekWeatherViewModelDelegate?
     
     public var weekData: [DailyWeather] = []
+    public var filterType: FiterType = .all {
+        willSet {
+            if newValue == .all {
+                diplayData = weekData
+            } else {
+                diplayData = hottestDays
+            }
+        }
+    }
+    public var diplayData: [DailyWeather] = []
+    // Hottest day sort and filter
+    public var hottestDays: [DailyWeather] {
+        weekData.sorted { $0.chanceRain > $1.chanceRain }.filter { $0.chanceRain < 0.5 }
+    }
+    
     private let interactor: NetworkManagerProviding
     
     init(interactor: NetworkManagerProviding = NetworkManager()) {
@@ -37,16 +57,12 @@ class WeekWeatherViewModel {
             switch result {
             case .success(let data):
                 self.weekData = data
+                self.diplayData = weekData
                 delegate?.didFetchWeekData(self.weekData)
             case .failure(let error):
                 print(error.localizedDescription)
                 delegate?.didFailFetchWeekData()
             }
         }
-    }
-    
-    // Hottest day filter
-    public func getHottestDays() -> [DailyWeather] {
-        return weekData.filter { $0.chanceRain < 0.5 }
     }
 }

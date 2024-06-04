@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 
+
 class WeekWeatherViewController: UIViewController {
     
     private struct Constants {
@@ -73,23 +74,25 @@ class WeekWeatherViewController: UIViewController {
     
     @objc
     private func segmentControl(_ segmentedControl: UISegmentedControl) {
-//       switch (segmentedControl.selectedSegmentIndex) {
-//          case 0:
-//            print("Show upcoming")
-//          break
-//          case 1:
-//           print("Show hottest")
-//          break
-//          default:
-//          break
-//       }
+        switch (segmentedControl.selectedSegmentIndex) {
+        case 0:
+            viewModel.filterType = .all
+            tableView.reloadData()
+            break
+        case 1:
+            viewModel.filterType = .hottest
+            tableView.reloadData()
+            break
+        default:
+            break
+        }
     }
 }
 
 extension WeekWeatherViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.weekData.count
+        viewModel.diplayData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -97,8 +100,9 @@ extension WeekWeatherViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.setTitle(day: viewModel.weekData[indexPath.row].day ?? "Day not found",
-                      description: viewModel.weekData[indexPath.row].description)
+        cell.setTitle(day: viewModel.diplayData[indexPath.row].day,
+                      description: viewModel.diplayData[indexPath.row].description,
+                      rain: String(viewModel.diplayData[indexPath.row].chanceRain))
         
         return cell
     }
