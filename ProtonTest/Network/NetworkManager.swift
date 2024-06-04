@@ -13,6 +13,11 @@ enum NetworkError: Error {
     case unableToDecode
 }
 
+enum APIURLs: String {
+    case weekData = "https://protonmail.github.io/proton-mobile-test/api/forecast"
+    case custom
+}
+
 class NetworkManager: NetworkManagerProviding {
     
     func getData<T>(fromURL url: URL, completion: @escaping(Result<T, NetworkError>) -> Void) where T: Decodable  {

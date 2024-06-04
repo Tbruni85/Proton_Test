@@ -8,13 +8,22 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController, ImageDownloadDelegate {
+class MasterViewController: UITableViewController, ImageDownloadDelegate, MasterViewModelDelegate {
+    func didFailFetchWeekData() {
+        
+    }
+    
     
     @IBOutlet weak var sortingControl: UISegmentedControl!
     
     var detailViewController: DetailViewController? = nil
     var objects = [[String: Any]]()
-    var interactor = NetworkManager()
+
+    let viewModel = MasterViewModel(interactor: NetworkManager())
+    
+    func didFetchWeekData(_ weekData: [DailyWeather]) {
+        print(weekData)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,28 +35,10 @@ class MasterViewController: UITableViewController, ImageDownloadDelegate {
         
         sortingControl.addTarget(self, action: "sortingControlAction:", for: .valueChanged)
         
-        testNetwork()
-    }
-    
-    func testNetwork() {
-        guard let url = URL(string: "https://protonmail.github.io/proton-mobile-test/api/forecast") else {
-            return
-        }
-        interactor.getData(fromURL: url) { (result: Result<[DailyWeather], NetworkError>) in
-            switch result {
-            case .success(let data):
-                data.forEach { day in
-                    print(day)
-                    print(day.dayOfTheWeek ?? "day not found")
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        viewModel.delegate = self
         
-        return
+        viewModel.getWeekData()
     }
-
     
     override func viewDidAppear(_ animated: Bool) {
         if let forecastUrl = URL(string: "https://protonmail.github.io/proton-mobile-test/api/forecast") {

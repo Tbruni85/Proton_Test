@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DailyWeather: Decodable {
+public struct DailyWeather: Decodable {
     
     private struct Constants {
         // Generate day considering Monday as first day of the week
