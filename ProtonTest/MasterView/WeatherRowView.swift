@@ -33,7 +33,7 @@ class WeatherRowView: UITableViewCell {
         }
     }
     
-    func setTitle(day: String, description: String, rain: String) {
-        title.text = "Day \(day): \(description) chance of rain \(rain)"
+    func setTitle(day: String, description: String) {
+        title.text = "Day \(day): \(description)"
     }
 }

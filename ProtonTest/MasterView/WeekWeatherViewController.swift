@@ -20,6 +20,7 @@ class WeekWeatherViewController: UIViewController {
     private var viewModel: WeekWeatherViewModelProviding
     private var segmentControl: UISegmentedControl!
     private var tableView: UITableView!
+    private let refreshControl = UIRefreshControl()
     
     init(viewModel: WeekWeatherViewModelProviding = WeekWeatherViewModel()) {
         
@@ -45,10 +46,14 @@ class WeekWeatherViewController: UIViewController {
         
         view.addSubview(segmentControl)
         
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refreshView), for: .valueChanged)
+        
         tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(WeatherRowView.self, forCellReuseIdentifier: "cell")
+        tableView.addSubview(refreshControl)
         
         view.addSubview(tableView)
     }
@@ -87,6 +92,11 @@ class WeekWeatherViewController: UIViewController {
             break
         }
     }
+    
+    @objc
+    private func refreshView() {
+        viewModel.getWeekData()
+    }
 }
 
 extension WeekWeatherViewController: UITableViewDataSource {
@@ -101,8 +111,7 @@ extension WeekWeatherViewController: UITableViewDataSource {
         }
         
         cell.setTitle(day: viewModel.diplayData[indexPath.row].day,
-                      description: viewModel.diplayData[indexPath.row].description,
-                      rain: String(viewModel.diplayData[indexPath.row].chanceRain))
+                      description: viewModel.diplayData[indexPath.row].description)
         
         return cell
     }
@@ -117,12 +126,15 @@ extension WeekWeatherViewController: UITableViewDelegate {
 extension WeekWeatherViewController: WeekWeatherViewModelDelegate {
     func didFetchWeekData(_ weekData: [DailyWeather]) {
         DispatchQueue.main.async {
+            self.refreshControl.endRefreshing()
             self.tableView.reloadData()
         }
     }
     
     func didFailFetchWeekData() {
-        
+        let alert = UIAlertController(title: "Message", message: "We couldn't retrieve the data, please pull to retry", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

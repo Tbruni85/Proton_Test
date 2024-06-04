@@ -40,7 +40,6 @@ class DetailView: UIView {
         
         descriptionLabel = UILabel()
         descriptionLabel.text = descriptionText
-        print(descriptionText)
         addSubview(descriptionLabel)
     }
     
