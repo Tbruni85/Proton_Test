@@ -18,13 +18,16 @@ class WeekWeatherViewController: UIViewController {
     }
     
     private var viewModel: WeekWeatherViewModelProviding
+    private var router: RouterProviding
     private var segmentControl: UISegmentedControl!
     private var tableView: UITableView!
     private let refreshControl = UIRefreshControl()
     
-    init(viewModel: WeekWeatherViewModelProviding = WeekWeatherViewModel()) {
+    init(viewModel: WeekWeatherViewModelProviding = WeekWeatherViewModel(),
+         router: RouterProviding = Router()) {
         
         self.viewModel = viewModel
+        self.router = router
         super.init(nibName: nil, bundle: nil)
         
         setupView()
@@ -141,8 +144,7 @@ extension WeekWeatherViewController: WeekWeatherViewModelDelegate {
 extension WeekWeatherViewController {
     
     private func pushDetailView(model: DailyWeather) {
-        let viewModel = WeatherDetailViewModel(dailyWeather: model)
-        let detailView = WeatherDetailViewController(viewModel: viewModel)
-        navigationController?.pushViewController(detailView, animated: true)
+        navigationController?.pushViewController(router.generateViewForRoute(.detail(model)), 
+                                                 animated: true)
     }
 }
