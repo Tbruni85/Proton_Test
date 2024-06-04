@@ -14,8 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        //Configure additional customizations here
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+        
         window = UIWindow()
-        window?.rootViewController = UINavigationController(rootViewController: WeekWeatherViewController())
+        window?.rootViewController = UINavigationController(rootViewController: WeekWeatherViewController(viewModel: WeekWeatherViewModel()))
         window?.makeKeyAndVisible()
         
         return true

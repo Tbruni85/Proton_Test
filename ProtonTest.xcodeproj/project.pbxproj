@@ -3,31 +3,37 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		405BA4952C0F1FF0005D6E32 /* WeatherRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405BA4942C0F1FF0005D6E32 /* WeatherRowView.swift */; };
 		408C452B2C0F00D8007465B6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C452A2C0F00D8007465B6 /* NetworkManager.swift */; };
 		408C452E2C0F00EA007465B6 /* NetworkManagerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C452D2C0F00EA007465B6 /* NetworkManagerProviding.swift */; };
 		408C45302C0F0499007465B6 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C452F2C0F0499007465B6 /* Weather.swift */; };
-		408C45342C0F133F007465B6 /* MasterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C45332C0F133F007465B6 /* MasterViewModel.swift */; };
+		408C45342C0F133F007465B6 /* WeekWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C45332C0F133F007465B6 /* WeekWeatherViewModel.swift */; };
 		408C45362C0F1878007465B6 /* WeekWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C45352C0F1878007465B6 /* WeekWeatherViewController.swift */; };
+		CD5B6EF421C3F575B4470D7D /* Pods_ProtonTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C083BF74433BDDF712B58C8 /* Pods_ProtonTest.framework */; };
 		E1CAF082220CBDBE00144320 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CAF081220CBDBE00144320 /* AppDelegate.swift */; };
-		E1CAF084220CBDBE00144320 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CAF083220CBDBE00144320 /* MasterViewController.swift */; };
+		E1CAF084220CBDBE00144320 /* DEPRECATED-MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CAF083220CBDBE00144320 /* DEPRECATED-MasterViewController.swift */; };
 		E1CAF086220CBDBE00144320 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CAF085220CBDBE00144320 /* DetailViewController.swift */; };
 		E1CAF08B220CBDBF00144320 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CAF08A220CBDBF00144320 /* Assets.xcassets */; };
 		E1CAF08E220CBDBF00144320 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1CAF08C220CBDBF00144320 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		405BA4942C0F1FF0005D6E32 /* WeatherRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRowView.swift; sourceTree = "<group>"; };
 		408C452A2C0F00D8007465B6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		408C452D2C0F00EA007465B6 /* NetworkManagerProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProviding.swift; sourceTree = "<group>"; };
 		408C452F2C0F0499007465B6 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
-		408C45332C0F133F007465B6 /* MasterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewModel.swift; sourceTree = "<group>"; };
+		408C45332C0F133F007465B6 /* WeekWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherViewModel.swift; sourceTree = "<group>"; };
 		408C45352C0F1878007465B6 /* WeekWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherViewController.swift; sourceTree = "<group>"; };
+		5C083BF74433BDDF712B58C8 /* Pods_ProtonTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProtonTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88ACB286D7B25F5D7957ED18 /* Pods-ProtonTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtonTest.release.xcconfig"; path = "Target Support Files/Pods-ProtonTest/Pods-ProtonTest.release.xcconfig"; sourceTree = "<group>"; };
+		9C67BCFF72B570F53EC00641 /* Pods-ProtonTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtonTest.debug.xcconfig"; path = "Target Support Files/Pods-ProtonTest/Pods-ProtonTest.debug.xcconfig"; sourceTree = "<group>"; };
 		E1CAF07E220CBDBE00144320 /* ProtonTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtonTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CAF081220CBDBE00144320 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E1CAF083220CBDBE00144320 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		E1CAF083220CBDBE00144320 /* DEPRECATED-MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DEPRECATED-MasterViewController.swift"; sourceTree = "<group>"; };
 		E1CAF085220CBDBE00144320 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E1CAF08A220CBDBF00144320 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1CAF08D220CBDBF00144320 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,12 +45,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD5B6EF421C3F575B4470D7D /* Pods_ProtonTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		283061CE09B73673AEDC2DD1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9C67BCFF72B570F53EC00641 /* Pods-ProtonTest.debug.xcconfig */,
+				88ACB286D7B25F5D7957ED18 /* Pods-ProtonTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		408C452C2C0F00DF007465B6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,11 +81,20 @@
 		408C45322C0F1333007465B6 /* MasterView */ = {
 			isa = PBXGroup;
 			children = (
-				E1CAF083220CBDBE00144320 /* MasterViewController.swift */,
+				E1CAF083220CBDBE00144320 /* DEPRECATED-MasterViewController.swift */,
 				408C45352C0F1878007465B6 /* WeekWeatherViewController.swift */,
-				408C45332C0F133F007465B6 /* MasterViewModel.swift */,
+				405BA4942C0F1FF0005D6E32 /* WeatherRowView.swift */,
+				408C45332C0F133F007465B6 /* WeekWeatherViewModel.swift */,
 			);
 			path = MasterView;
+			sourceTree = "<group>";
+		};
+		94B78EC2CD1E47F4F9288F6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C083BF74433BDDF712B58C8 /* Pods_ProtonTest.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E1CAF075220CBDBE00144320 = {
@@ -77,6 +102,8 @@
 			children = (
 				E1CAF080220CBDBE00144320 /* ProtonTest */,
 				E1CAF07F220CBDBE00144320 /* Products */,
+				283061CE09B73673AEDC2DD1 /* Pods */,
+				94B78EC2CD1E47F4F9288F6C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,9 +137,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1CAF092220CBDBF00144320 /* Build configuration list for PBXNativeTarget "ProtonTest" */;
 			buildPhases = (
+				75CDADA7965B5FF082B3859A /* [CP] Check Pods Manifest.lock */,
 				E1CAF07A220CBDBE00144320 /* Sources */,
 				E1CAF07B220CBDBE00144320 /* Frameworks */,
 				E1CAF07C220CBDBE00144320 /* Resources */,
+				24A81494C13F31B7BAF6E3C7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -168,17 +197,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		24A81494C13F31B7BAF6E3C7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProtonTest/Pods-ProtonTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProtonTest/Pods-ProtonTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProtonTest/Pods-ProtonTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75CDADA7965B5FF082B3859A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ProtonTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E1CAF07A220CBDBE00144320 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				408C45342C0F133F007465B6 /* MasterViewModel.swift in Sources */,
+				408C45342C0F133F007465B6 /* WeekWeatherViewModel.swift in Sources */,
 				408C452B2C0F00D8007465B6 /* NetworkManager.swift in Sources */,
 				E1CAF086220CBDBE00144320 /* DetailViewController.swift in Sources */,
-				E1CAF084220CBDBE00144320 /* MasterViewController.swift in Sources */,
+				E1CAF084220CBDBE00144320 /* DEPRECATED-MasterViewController.swift in Sources */,
 				408C452E2C0F00EA007465B6 /* NetworkManagerProviding.swift in Sources */,
 				408C45362C0F1878007465B6 /* WeekWeatherViewController.swift in Sources */,
+				405BA4952C0F1FF0005D6E32 /* WeatherRowView.swift in Sources */,
 				408C45302C0F0499007465B6 /* Weather.swift in Sources */,
 				E1CAF082220CBDBE00144320 /* AppDelegate.swift in Sources */,
 			);
@@ -316,6 +388,7 @@
 		};
 		E1CAF093220CBDBF00144320 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C67BCFF72B570F53EC00641 /* Pods-ProtonTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -339,6 +412,7 @@
 		};
 		E1CAF094220CBDBF00144320 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88ACB286D7B25F5D7957ED18 /* Pods-ProtonTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

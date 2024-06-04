@@ -8,23 +8,13 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController, ImageDownloadDelegate, MasterViewModelDelegate {
-    func didFailFetchWeekData() {
-        
-    }
-    
-    
+@available(*, deprecated)
+class MasterViewController: UITableViewController, ImageDownloadDelegate {
+
     @IBOutlet weak var sortingControl: UISegmentedControl!
     
     var detailViewController: DetailViewController? = nil
     var objects = [[String: Any]]()
-
-    let viewModel = MasterViewModel(interactor: NetworkManager())
-    
-    func didFetchWeekData(_ weekData: [DailyWeather]) {
-        print(weekData)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,10 +24,6 @@ class MasterViewController: UITableViewController, ImageDownloadDelegate, Master
         }
         
         sortingControl.addTarget(self, action: "sortingControlAction:", for: .valueChanged)
-        
-        viewModel.delegate = self
-        
-        viewModel.getWeekData()
     }
     
     override func viewDidAppear(_ animated: Bool) {

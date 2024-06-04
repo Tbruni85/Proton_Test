@@ -1,5 +1,5 @@
 //
-//  MasterViewModel.swift
+//  WeekWeatherViewModel.swift
 //  ProtonTest
 //
 //  Created by Tiziano Bruni on 04/06/2024.
@@ -8,20 +8,20 @@
 
 import Foundation
 
-public protocol MasterViewModelDelegate: AnyObject {
+public protocol WeekWeatherViewModelDelegate: AnyObject {
     
     func didFetchWeekData(_ weekData: [DailyWeather])
     func didFailFetchWeekData()
 }
 
-class MasterViewModel {
+class WeekWeatherViewModel {
     
-    public weak var delegate: MasterViewModelDelegate?
+    public weak var delegate: WeekWeatherViewModelDelegate?
     
-    private var weekData: [DailyWeather] = []
+    public var weekData: [DailyWeather] = []
     private let interactor: NetworkManagerProviding
     
-    init(interactor: NetworkManagerProviding) {
+    init(interactor: NetworkManagerProviding = NetworkManager()) {
         self.interactor = interactor
     }
     
@@ -43,5 +43,10 @@ class MasterViewModel {
                 delegate?.didFailFetchWeekData()
             }
         }
+    }
+    
+    // Hottest day filter
+    public func getHottestDays() -> [DailyWeather] {
+        return weekData.filter { $0.chanceRain < 0.5 }
     }
 }
