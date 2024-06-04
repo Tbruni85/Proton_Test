@@ -122,6 +122,10 @@ extension WeekWeatherViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }
 
 extension WeekWeatherViewController: UITableViewDelegate {

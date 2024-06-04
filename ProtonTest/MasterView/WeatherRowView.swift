@@ -11,6 +11,13 @@ import SnapKit
 
 class WeatherRowView: UITableViewCell {
     
+    private struct Constants {
+        static var thumbnailSize = CGSize(width: 50, height: 50)
+        static var trailingPadding: CGFloat = 5
+        static var verticalPadding: CGFloat = 15
+        static var leadingPadding: CGFloat = 10
+    }
+    
     private var title: UILabel!
     private var thumbnail: UIImageView!
     
@@ -43,14 +50,15 @@ class WeatherRowView: UITableViewCell {
         
         title.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().inset(10)
+            make.leading.equalToSuperview().inset(Constants.leadingPadding)
+            make.top.bottom.equalToSuperview().inset(Constants.verticalPadding)
         }
         
         thumbnail.snp.makeConstraints { make in
-            make.top.bottom.trailing.equalToSuperview().inset(15)
-            make.leading.lessThanOrEqualTo(title.snp.trailing)
-            make.width.equalTo(40)
-            make.height.equalTo(40)
+            make.centerY.equalToSuperview()
+            make.leading.greaterThanOrEqualTo(title.snp.trailing)
+            make.trailing.equalToSuperview().inset(Constants.trailingPadding)
+            make.size.equalTo(Constants.thumbnailSize)
         }
     }
     
