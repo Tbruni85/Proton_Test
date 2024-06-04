@@ -15,4 +15,5 @@ public struct DailyWeather: Decodable, Equatable {
     let chanceRain: Double
     let high, low: Int
     let image: String
+    var imageData: Data?
 }

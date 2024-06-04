@@ -8,12 +8,18 @@
 
 import UIKit
 
+public protocol WeatherDetailViewControllerDelegate: AnyObject {
+    func didFetchImage(_ model: DailyWeather)
+}
+
 class WeatherDetailViewController: UIViewController {
     
     private struct Constants {
         static var forecastTitle = "Forecast"
         static var horizontalPadding: CGFloat = 5
     }
+    
+    public weak var delegate: WeatherDetailViewControllerDelegate?
     
     private var viewModel: WeatherDetailViewModelProviding
     
@@ -82,6 +88,10 @@ class WeatherDetailViewController: UIViewController {
         imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        if let data = viewModel.dailyWeather.imageData, let image = UIImage(data: data) {
+            imageView.image = image
+            downloadButton.isHidden = true
+        }
         stackContainer.addArrangedSubview(imageView)
     }
    
@@ -108,11 +118,16 @@ class WeatherDetailViewController: UIViewController {
 }
 
 extension WeatherDetailViewController: WeatherDetailViewModelDelegate {
-    func didFetchImate(uiImage: UIImage) {
+    func didFetchImage(uiImage: UIImage) {
         DispatchQueue.main.async {
             self.imageView.image = uiImage
             self.downloadButton.isHidden = !self.viewModel.isDownloadButtonEnabled
             self.setupConstraints()
+            guard let data = uiImage.pngData() else {
+                return
+            }
+            self.viewModel.dailyWeather.imageData = data
+            self.delegate?.didFetchImage(self.viewModel.dailyWeather)
         }
     }
     

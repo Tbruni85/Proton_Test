@@ -20,8 +20,8 @@ class Router: RouterProviding {
     
     func generateViewForRoute(_ route: Route) -> UIViewController {
         switch route {
-        case .detail(let dailyWeatehr):
-            let viewModel = WeatherDetailViewModel(dailyWeather: dailyWeatehr)
+        case .detail(let dailyWeather):
+            let viewModel = WeatherDetailViewModel(dailyWeather: dailyWeather)
             return WeatherDetailViewController(viewModel: viewModel)
         }
     }

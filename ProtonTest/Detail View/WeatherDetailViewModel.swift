@@ -11,7 +11,7 @@ import UIKit
 protocol WeatherDetailViewModelProviding {
     
     func getWeatherImage()
-    
+
     var delegate: WeatherDetailViewModelDelegate? { get set }
     var viewTitle: String { get }
     var sunRiseTime: String { get }
@@ -23,7 +23,7 @@ protocol WeatherDetailViewModelProviding {
 }
 
 public protocol WeatherDetailViewModelDelegate: AnyObject {
-    func didFetchImate(uiImage: UIImage)
+    func didFetchImage(uiImage: UIImage)
     func fetchImageDidFail()
 }
 
@@ -74,9 +74,9 @@ class WeatherDetailViewModel: WeatherDetailViewModelProviding {
         interactor.getImage(fromURL: url) { [weak self] result in
             switch result {
             case .success(let image):
-                self?.delegate?.didFetchImate(uiImage: image)
+                self?.delegate?.didFetchImage(uiImage: image)
                 self?.isDownloadButtonEnabled = false
-            case .failure(let error):
+            case .failure:
                 self?.delegate?.fetchImageDidFail()
             }
         }

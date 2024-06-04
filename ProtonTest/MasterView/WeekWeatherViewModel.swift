@@ -11,6 +11,7 @@ import Foundation
 protocol WeekWeatherViewModelProviding {
     
     func getWeekData()
+    func updateElementImage(model: DailyWeather)
     
     var delegate: WeekWeatherViewModelDelegate? { get set }
     var filterType: FiterType { get set }
@@ -23,6 +24,7 @@ public protocol WeekWeatherViewModelDelegate: AnyObject {
     
     func didFetchWeekData(_ weekData: [DailyWeather])
     func didFailFetchWeekData()
+    func dataUpdate()
 }
 
 enum FiterType {
@@ -74,6 +76,16 @@ class WeekWeatherViewModel: WeekWeatherViewModelProviding {
                 print(error.localizedDescription)
                 delegate?.didFailFetchWeekData()
             }
+        }
+    }
+    
+    func updateElementImage(model: DailyWeather) {
+        if let index = weekData.firstIndex(where: {$0.day == model.day}) {
+            weekData[index] = model
+            displayData = weekData
+            // re-set the filter type to update Hottest array
+            filterType = filterType == .all ? .all : .hottest
+            delegate?.dataUpdate()
         }
     }
 }

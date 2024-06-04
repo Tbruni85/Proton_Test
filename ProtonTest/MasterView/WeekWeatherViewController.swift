@@ -116,13 +116,17 @@ extension WeekWeatherViewController: UITableViewDataSource {
         cell.setTitle(day: viewModel.displayData[indexPath.row].day,
                       description: viewModel.displayData[indexPath.row].description)
         
+        if let data = viewModel.displayData[indexPath.row].imageData, let image = UIImage(data: data) {
+            cell.updateImage(image)
+        }
+        
         return cell
     }
 }
 
 extension WeekWeatherViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        pushDetailView(model: viewModel.displayData[indexPath.row])
+        pushDetailView(model: viewModel.displayData[indexPath.row], index: indexPath.row)
     }
 }
 
@@ -139,12 +143,27 @@ extension WeekWeatherViewController: WeekWeatherViewModelDelegate {
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func dataUpdate() {
+        self.tableView.reloadData()
+    }
 }
 
 extension WeekWeatherViewController {
     
-    private func pushDetailView(model: DailyWeather) {
-        navigationController?.pushViewController(router.generateViewForRoute(.detail(model)), 
-                                                 animated: true)
+    private func pushDetailView(model: DailyWeather, index: Int) {
+        
+        let vc = router.generateViewForRoute(.detail(model))
+        if let vcDetail = vc as? WeatherDetailViewController {
+            vcDetail.delegate = self
+        }
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension WeekWeatherViewController: WeatherDetailViewControllerDelegate {
+    func didFetchImage(_ model: DailyWeather) {
+        viewModel.updateElementImage(model: model)
     }
 }
