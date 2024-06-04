@@ -105,7 +105,7 @@ class WeekWeatherViewController: UIViewController {
 extension WeekWeatherViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.diplayData.count
+        viewModel.displayData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -113,8 +113,8 @@ extension WeekWeatherViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.setTitle(day: viewModel.diplayData[indexPath.row].day,
-                      description: viewModel.diplayData[indexPath.row].description)
+        cell.setTitle(day: viewModel.displayData[indexPath.row].day,
+                      description: viewModel.displayData[indexPath.row].description)
         
         return cell
     }
@@ -122,7 +122,7 @@ extension WeekWeatherViewController: UITableViewDataSource {
 
 extension WeekWeatherViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        pushDetailView(model: viewModel.diplayData[indexPath.row])
+        pushDetailView(model: viewModel.displayData[indexPath.row])
     }
 }
 

@@ -12,6 +12,12 @@
 		405BA49A2C0F3122005D6E32 /* WeatherDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405BA4992C0F3122005D6E32 /* WeatherDetailViewModel.swift */; };
 		405BA49C2C0F3403005D6E32 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405BA49B2C0F3403005D6E32 /* DetailView.swift */; };
 		405BA49E2C0F4B21005D6E32 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405BA49D2C0F4B21005D6E32 /* Router.swift */; };
+		405BA4A62C0F5C6C005D6E32 /* ProtonTestUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405BA4A52C0F5C6C005D6E32 /* ProtonTestUnitTests.swift */; };
+		405BA4AD2C0F5D19005D6E32 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405BA4AC2C0F5D19005D6E32 /* MockNetworkManager.swift */; };
+		405BA4AF2C0F5D62005D6E32 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405BA4AE2C0F5D62005D6E32 /* Helper.swift */; };
+		405BA4B12C0F5D94005D6E32 /* MockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 405BA4B02C0F5D94005D6E32 /* MockData.json */; };
+		405BA4B32C0F60C3005D6E32 /* MockWeekViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405BA4B22C0F60C3005D6E32 /* MockWeekViewModelDelegate.swift */; };
+		405BA4B42C0F63B3005D6E32 /* MockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 405BA4B02C0F5D94005D6E32 /* MockData.json */; };
 		408C452B2C0F00D8007465B6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C452A2C0F00D8007465B6 /* NetworkManager.swift */; };
 		408C452E2C0F00EA007465B6 /* NetworkManagerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C452D2C0F00EA007465B6 /* NetworkManagerProviding.swift */; };
 		408C45302C0F0499007465B6 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C452F2C0F0499007465B6 /* Weather.swift */; };
@@ -25,12 +31,28 @@
 		E1CAF08E220CBDBF00144320 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1CAF08C220CBDBF00144320 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		405BA4A72C0F5C6C005D6E32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1CAF076220CBDBE00144320 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1CAF07D220CBDBE00144320;
+			remoteInfo = ProtonTest;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		405BA4942C0F1FF0005D6E32 /* WeatherRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRowView.swift; sourceTree = "<group>"; };
 		405BA4972C0F30F8005D6E32 /* WeatherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewController.swift; sourceTree = "<group>"; };
 		405BA4992C0F3122005D6E32 /* WeatherDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewModel.swift; sourceTree = "<group>"; };
 		405BA49B2C0F3403005D6E32 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		405BA49D2C0F4B21005D6E32 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		405BA4A32C0F5C6C005D6E32 /* ProtonTestUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProtonTestUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		405BA4A52C0F5C6C005D6E32 /* ProtonTestUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtonTestUnitTests.swift; sourceTree = "<group>"; };
+		405BA4AC2C0F5D19005D6E32 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		405BA4AE2C0F5D62005D6E32 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		405BA4B02C0F5D94005D6E32 /* MockData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockData.json; sourceTree = "<group>"; };
+		405BA4B22C0F60C3005D6E32 /* MockWeekViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWeekViewModelDelegate.swift; sourceTree = "<group>"; };
 		408C452A2C0F00D8007465B6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		408C452D2C0F00EA007465B6 /* NetworkManagerProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProviding.swift; sourceTree = "<group>"; };
 		408C452F2C0F0499007465B6 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
@@ -49,6 +71,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		405BA4A02C0F5C6C005D6E32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1CAF07B220CBDBE00144320 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -78,6 +107,18 @@
 				405BA49B2C0F3403005D6E32 /* DetailView.swift */,
 			);
 			path = "Detail View";
+			sourceTree = "<group>";
+		};
+		405BA4A42C0F5C6C005D6E32 /* ProtonTestUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				405BA4B02C0F5D94005D6E32 /* MockData.json */,
+				405BA4A52C0F5C6C005D6E32 /* ProtonTestUnitTests.swift */,
+				405BA4AC2C0F5D19005D6E32 /* MockNetworkManager.swift */,
+				405BA4B22C0F60C3005D6E32 /* MockWeekViewModelDelegate.swift */,
+				405BA4AE2C0F5D62005D6E32 /* Helper.swift */,
+			);
+			path = ProtonTestUnitTests;
 			sourceTree = "<group>";
 		};
 		408C452C2C0F00DF007465B6 /* Network */ = {
@@ -120,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				E1CAF080220CBDBE00144320 /* ProtonTest */,
+				405BA4A42C0F5C6C005D6E32 /* ProtonTestUnitTests */,
 				E1CAF07F220CBDBE00144320 /* Products */,
 				283061CE09B73673AEDC2DD1 /* Pods */,
 				94B78EC2CD1E47F4F9288F6C /* Frameworks */,
@@ -130,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				E1CAF07E220CBDBE00144320 /* ProtonTest.app */,
+				405BA4A32C0F5C6C005D6E32 /* ProtonTestUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,6 +196,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		405BA4A22C0F5C6C005D6E32 /* ProtonTestUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 405BA4AB2C0F5C6C005D6E32 /* Build configuration list for PBXNativeTarget "ProtonTestUnitTests" */;
+			buildPhases = (
+				405BA49F2C0F5C6C005D6E32 /* Sources */,
+				405BA4A02C0F5C6C005D6E32 /* Frameworks */,
+				405BA4A12C0F5C6C005D6E32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				405BA4A82C0F5C6C005D6E32 /* PBXTargetDependency */,
+			);
+			name = ProtonTestUnitTests;
+			productName = ProtonTestUnitTests;
+			productReference = 405BA4A32C0F5C6C005D6E32 /* ProtonTestUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E1CAF07D220CBDBE00144320 /* ProtonTest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1CAF092220CBDBF00144320 /* Build configuration list for PBXNativeTarget "ProtonTest" */;
@@ -178,10 +239,14 @@
 		E1CAF076220CBDBE00144320 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Proton Technologies AG";
 				TargetAttributes = {
+					405BA4A22C0F5C6C005D6E32 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = E1CAF07D220CBDBE00144320;
+					};
 					E1CAF07D220CBDBE00144320 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -201,17 +266,27 @@
 			projectRoot = "";
 			targets = (
 				E1CAF07D220CBDBE00144320 /* ProtonTest */,
+				405BA4A22C0F5C6C005D6E32 /* ProtonTestUnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		405BA4A12C0F5C6C005D6E32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				405BA4B12C0F5D94005D6E32 /* MockData.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1CAF07C220CBDBE00144320 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E1CAF08E220CBDBF00144320 /* LaunchScreen.storyboard in Resources */,
 				E1CAF08B220CBDBF00144320 /* Assets.xcassets in Resources */,
+				405BA4B42C0F63B3005D6E32 /* MockData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +335,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		405BA49F2C0F5C6C005D6E32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				405BA4AD2C0F5D19005D6E32 /* MockNetworkManager.swift in Sources */,
+				405BA4A62C0F5C6C005D6E32 /* ProtonTestUnitTests.swift in Sources */,
+				405BA4AF2C0F5D62005D6E32 /* Helper.swift in Sources */,
+				405BA4B32C0F60C3005D6E32 /* MockWeekViewModelDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1CAF07A220CBDBE00144320 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -282,6 +368,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		405BA4A82C0F5C6C005D6E32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1CAF07D220CBDBE00144320 /* ProtonTest */;
+			targetProxy = 405BA4A72C0F5C6C005D6E32 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		E1CAF08C220CBDBF00144320 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -294,6 +388,57 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		405BA4A92C0F5C6C005D6E32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HNQE3Z56AG;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tbruni.ProtonTestUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProtonTest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ProtonTest";
+			};
+			name = Debug;
+		};
+		405BA4AA2C0F5C6C005D6E32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HNQE3Z56AG;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tbruni.ProtonTestUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProtonTest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ProtonTest";
+			};
+			name = Release;
+		};
 		E1CAF090220CBDBF00144320 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -461,6 +606,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		405BA4AB2C0F5C6C005D6E32 /* Build configuration list for PBXNativeTarget "ProtonTestUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				405BA4A92C0F5C6C005D6E32 /* Debug */,
+				405BA4AA2C0F5C6C005D6E32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E1CAF079220CBDBE00144320 /* Build configuration list for PBXProject "ProtonTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

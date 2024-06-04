@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct DailyWeather: Decodable {
+public struct DailyWeather: Decodable, Equatable {
     
     let day, description: String
     let sunrise, sunset: Int

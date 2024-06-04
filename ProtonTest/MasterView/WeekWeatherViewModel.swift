@@ -14,7 +14,9 @@ protocol WeekWeatherViewModelProviding {
     
     var delegate: WeekWeatherViewModelDelegate? { get set }
     var filterType: FiterType { get set }
-    var diplayData: [DailyWeather] { get }
+    var displayData: [DailyWeather] { get }
+    var weekData: [DailyWeather] { get set }
+    var hottestDays: [DailyWeather] { get }
 }
 
 public protocol WeekWeatherViewModelDelegate: AnyObject {
@@ -36,13 +38,13 @@ class WeekWeatherViewModel: WeekWeatherViewModelProviding {
     public var filterType: FiterType = .all {
         willSet {
             if newValue == .all {
-                diplayData = weekData
+                displayData = weekData
             } else {
-                diplayData = hottestDays
+                displayData = hottestDays
             }
         }
     }
-    public var diplayData: [DailyWeather] = []
+    public var displayData: [DailyWeather] = []
     // Hottest day sort and filter
     public var hottestDays: [DailyWeather] {
         weekData.sorted { $0.chanceRain > $1.chanceRain }.filter { $0.chanceRain < 0.5 }
@@ -66,7 +68,7 @@ class WeekWeatherViewModel: WeekWeatherViewModelProviding {
             switch result {
             case .success(let data):
                 self.weekData = data
-                self.diplayData = weekData
+                self.displayData = weekData
                 delegate?.didFetchWeekData(self.weekData)
             case .failure(let error):
                 print(error.localizedDescription)
