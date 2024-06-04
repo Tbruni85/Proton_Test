@@ -6,22 +6,32 @@
 //  Copyright © 2024 Proton Technologies AG. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol WeatherDetailViewModelProviding {
     
+    func getWeatherImage()
+    
+    var delegate: WeatherDetailViewModelDelegate? { get set }
     var viewTitle: String { get }
     var sunRiseTime: String { get }
     var sunSetTime: String { get }
     var highTemp: String { get }
     var lowTemp: String { get }
     var dailyWeather: DailyWeather { get set }
+    var isDownloadButtonEnabled: Bool { get }
+}
+
+public protocol WeatherDetailViewModelDelegate: AnyObject {
+    func didFetchImate(uiImage: UIImage)
+    func fetchImageDidFail()
 }
 
 class WeatherDetailViewModel: WeatherDetailViewModelProviding {
     
-    private let formatter = DateFormatter()
+    weak var delegate: WeatherDetailViewModelDelegate?
     var dailyWeather: DailyWeather
+    var isDownloadButtonEnabled: Bool = true
     
     var viewTitle: String {
         "Day \(dailyWeather.day)"
@@ -46,9 +56,29 @@ class WeatherDetailViewModel: WeatherDetailViewModelProviding {
         return "\(hourString)"
     }
     
-    init(dailyWeather: DailyWeather) {
+    private let formatter = DateFormatter()
+    private let interactor: NetworkManagerProviding
+    
+    init(dailyWeather: DailyWeather,
+         interactor: NetworkManagerProviding = NetworkManager()) {
         self.dailyWeather = dailyWeather
+        self.interactor = interactor
         // Date format style
         formatter.dateFormat = "h:mm a"
+    }
+    
+    func getWeatherImage() {
+        guard let url = URL(string: dailyWeather.image) else {
+            return
+        }
+        interactor.getImage(fromURL: url) { [weak self] result in
+            switch result {
+            case .success(let image):
+                self?.delegate?.didFetchImate(uiImage: image)
+                self?.isDownloadButtonEnabled = false
+            case .failure(let error):
+                self?.delegate?.fetchImageDidFail()
+            }
+        }
     }
 }

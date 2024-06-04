@@ -6,11 +6,12 @@
 //  Copyright © 2024 Proton Technologies AG. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum NetworkError: Error {
     case badResponse
     case unableToDecode
+    case unableToConvertDataToImage
 }
 
 enum APIURLs: String {
@@ -40,6 +41,27 @@ class NetworkManager: NetworkManagerProviding {
                 completion(.success(decodedResponse))
             } catch {
                 completion(.failure(.unableToDecode))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
+    func getImage(fromURL url: URL, completion: @escaping(Result<UIImage, NetworkError>) -> Void) {
+        
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            
+            if error != nil {
+                completion(.failure(.badResponse))
+            }
+            
+            if let data = data {
+                guard let image = UIImage(data: data) else {
+                    completion(.failure(.unableToConvertDataToImage))
+                    return
+                }
+                completion(.success(image))
             }
         }
         
