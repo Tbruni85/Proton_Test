@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		408C452B2C0F00D8007465B6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C452A2C0F00D8007465B6 /* NetworkManager.swift */; };
+		408C452E2C0F00EA007465B6 /* NetworkManagerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C452D2C0F00EA007465B6 /* NetworkManagerProviding.swift */; };
+		408C45302C0F0499007465B6 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C452F2C0F0499007465B6 /* Weather.swift */; };
 		E1CAF082220CBDBE00144320 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CAF081220CBDBE00144320 /* AppDelegate.swift */; };
 		E1CAF084220CBDBE00144320 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CAF083220CBDBE00144320 /* MasterViewController.swift */; };
 		E1CAF086220CBDBE00144320 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CAF085220CBDBE00144320 /* DetailViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		408C452A2C0F00D8007465B6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		408C452D2C0F00EA007465B6 /* NetworkManagerProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProviding.swift; sourceTree = "<group>"; };
+		408C452F2C0F0499007465B6 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		E1CAF07E220CBDBE00144320 /* ProtonTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtonTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CAF081220CBDBE00144320 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1CAF083220CBDBE00144320 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +43,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		408C452C2C0F00DF007465B6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				408C452A2C0F00D8007465B6 /* NetworkManager.swift */,
+				408C452D2C0F00EA007465B6 /* NetworkManagerProviding.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		408C45312C0F04CC007465B6 /* Data models */ = {
+			isa = PBXGroup;
+			children = (
+				408C452F2C0F0499007465B6 /* Weather.swift */,
+			);
+			path = "Data models";
+			sourceTree = "<group>";
+		};
 		E1CAF075220CBDBE00144320 = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +82,8 @@
 				E1CAF081220CBDBE00144320 /* AppDelegate.swift */,
 				E1CAF083220CBDBE00144320 /* MasterViewController.swift */,
 				E1CAF085220CBDBE00144320 /* DetailViewController.swift */,
+				408C45312C0F04CC007465B6 /* Data models */,
+				408C452C2C0F00DF007465B6 /* Network */,
 				E1CAF087220CBDBE00144320 /* Main.storyboard */,
 				E1CAF08A220CBDBF00144320 /* Assets.xcassets */,
 				E1CAF08C220CBDBF00144320 /* LaunchScreen.storyboard */,
@@ -138,8 +163,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				408C452B2C0F00D8007465B6 /* NetworkManager.swift in Sources */,
 				E1CAF086220CBDBE00144320 /* DetailViewController.swift in Sources */,
 				E1CAF084220CBDBE00144320 /* MasterViewController.swift in Sources */,
+				408C452E2C0F00EA007465B6 /* NetworkManagerProviding.swift in Sources */,
+				408C45302C0F0499007465B6 /* Weather.swift in Sources */,
 				E1CAF082220CBDBE00144320 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,12 +317,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				INFOPLIST_FILE = ProtonTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ch.proton.ProtonTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -307,12 +340,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				INFOPLIST_FILE = ProtonTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ch.proton.ProtonTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

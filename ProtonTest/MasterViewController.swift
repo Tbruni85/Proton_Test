@@ -14,18 +14,40 @@ class MasterViewController: UITableViewController, ImageDownloadDelegate {
     
     var detailViewController: DetailViewController? = nil
     var objects = [[String: Any]]()
-
-
+    var interactor = NetworkManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
-    
+        
         sortingControl.addTarget(self, action: "sortingControlAction:", for: .valueChanged)
+        
+        testNetwork()
     }
+    
+    func testNetwork() {
+        guard let url = URL(string: "https://protonmail.github.io/proton-mobile-test/api/forecast") else {
+            return
+        }
+        interactor.getData(fromURL: url) { (result: Result<[DailyWeather], NetworkError>) in
+            switch result {
+            case .success(let data):
+                data.forEach { day in
+                    print(day)
+                    print(day.dayOfTheWeek ?? "day not found")
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        return
+    }
+
     
     override func viewDidAppear(_ animated: Bool) {
         if let forecastUrl = URL(string: "https://protonmail.github.io/proton-mobile-test/api/forecast") {
@@ -45,7 +67,7 @@ class MasterViewController: UITableViewController, ImageDownloadDelegate {
         
         tableView.reloadData()
     }
-
+    
     @objc func sortingControlAction(_ segmentedControl: UISegmentedControl) {
         if segmentedControl.selectedSegmentIndex == 1 { // switching to sorted option
             objects.sort { (object1, object2) -> Bool in
@@ -84,19 +106,19 @@ class MasterViewController: UITableViewController, ImageDownloadDelegate {
             }
         }
     }
-
+    
     // MARK: - Table View
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return objects.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
+        
         let object = objects[indexPath.row]
         cell.textLabel!.text = "Day \(object["day"]!): \(object["description"]!)"
         if let imageDownloaded = object["image_downloaded"] as? Bool, imageDownloaded {
