@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
         
         window = UIWindow()
-        window?.rootViewController = UINavigationController(rootViewController: WeekWeatherViewController(viewModel: WeekWeatherViewModel()))
+        window?.rootViewController = UINavigationController(rootViewController: WeekWeatherViewController())
         window?.makeKeyAndVisible()
         
         return true

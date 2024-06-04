@@ -17,11 +17,11 @@ class WeekWeatherViewController: UIViewController {
         static var segmentTitles = ["Upcoming", "Hottest"]
     }
     
-    private let viewModel: WeekWeatherViewModel
+    private var viewModel: WeekWeatherViewModelProviding
     private var segmentControl: UISegmentedControl!
     private var tableView: UITableView!
     
-    init(viewModel: WeekWeatherViewModel) {
+    init(viewModel: WeekWeatherViewModelProviding = WeekWeatherViewModel()) {
         
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -110,7 +110,7 @@ extension WeekWeatherViewController: UITableViewDataSource {
 
 extension WeekWeatherViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        pushDetailView(model: viewModel.diplayData[indexPath.row])
     }
 }
 
@@ -123,5 +123,14 @@ extension WeekWeatherViewController: WeekWeatherViewModelDelegate {
     
     func didFailFetchWeekData() {
         
+    }
+}
+
+extension WeekWeatherViewController {
+    
+    private func pushDetailView(model: DailyWeather) {
+        let viewModel = WeatherDetailViewModel(dailyWeather: model)
+        let detailView = WeatherDetailViewController(viewModel: viewModel)
+        navigationController?.pushViewController(detailView, animated: true)
     }
 }

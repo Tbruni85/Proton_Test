@@ -8,6 +8,15 @@
 
 import Foundation
 
+protocol WeekWeatherViewModelProviding {
+    
+    func getWeekData()
+    
+    var delegate: WeekWeatherViewModelDelegate? { get set }
+    var filterType: FiterType { get set }
+    var diplayData: [DailyWeather] { get }
+}
+
 public protocol WeekWeatherViewModelDelegate: AnyObject {
     
     func didFetchWeekData(_ weekData: [DailyWeather])
@@ -19,7 +28,7 @@ enum FiterType {
     case hottest
 }
 
-class WeekWeatherViewModel {
+class WeekWeatherViewModel: WeekWeatherViewModelProviding {
     
     public weak var delegate: WeekWeatherViewModelDelegate?
     
